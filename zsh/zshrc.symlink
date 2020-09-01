@@ -83,12 +83,15 @@ plugins=(
   vscode
 )
 
-source "$ZSH/oh-my-zsh.sh"
-source "$ZSH/custom/themes/powerlevel10k/powerlevel10k.zsh-theme"
+if [[ -a "$ZSH/oh-my-zsh.sh" ]]; then
+  source "$ZSH/oh-my-zsh.sh"
+fi
 
+if [[ -a "$ZSH/custom/themes/powerlevel10k/powerlevel10k.zsh-theme" ]]; then
+  source "$ZSH/custom/themes/powerlevel10k/powerlevel10k.zsh-theme"
+fi
 
 # Local settings
-if [[ -a ~/.localrc ]]
-then
+if [[ -a ~/.localrc ]]; then
   source ~/.localrc
 fi
