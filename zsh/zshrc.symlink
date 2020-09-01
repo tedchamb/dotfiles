@@ -1,15 +1,17 @@
+echo "Running $HOME/.dotfiles/Zshrc.symlink"
+
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/repos
 
-# Stash your environment variables in ~/.localrc. This means they'll stay out
+# Stash your environment variables in ~/.localrcvars. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
 # you'll have access to them in your scripts.
-if [[ -a ~/.localrc ]]
+if [[ -a ~/.localrcvars ]]
 then
-  source ~/.localrc
+  source ~/.localrcvars
 fi
 
 # all of our zsh files
@@ -25,6 +27,7 @@ done
 # load everything but the path and completion files
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
 do
+  echo "Running $file"
   source $file
 done
 
@@ -48,3 +51,9 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
+
+# Local settings
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
