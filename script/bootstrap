@@ -142,6 +142,8 @@ sudo apt-get update
 setup_gitconfig
 install_dotfiles
 
+link_file "$HOME/.config/powershell/Microsoft.PowerShell_profile.ps1" "$DOTFILES_ROOT/pwsh/Microsoft.PowerShell_profile.ps1"
+
 if ! command -v curl &> /dev/null
 then
   if [ "$(uname -s)" == "Linux" ]
