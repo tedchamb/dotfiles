@@ -140,14 +140,6 @@ install_dotfiles () {
 setup_gitconfig
 install_dotfiles
 
-if ! command -v zsh &> /dev/null
-then
-  if [ "$(uname -s)" == "Linux" ]
-  then
-    sudo apt install zsh
-  fi
-fi
-
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
 then
