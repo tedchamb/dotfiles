@@ -140,6 +140,14 @@ install_dotfiles () {
 setup_gitconfig
 install_dotfiles
 
+if ! command -v curl &> /dev/null
+then
+  if [ "$(uname -s)" == "Linux" ]
+  then
+    sudo apt install curl
+  fi
+fi
+
 source fonts/install.sh
 source zsh/install.sh
 
