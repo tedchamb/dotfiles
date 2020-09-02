@@ -144,7 +144,7 @@ if ! command -v curl &> /dev/null
 then
   if [ "$(uname -s)" == "Linux" ]
   then
-    sudo apt install curl
+    sudo apt install curl -y
   fi
 fi
 
