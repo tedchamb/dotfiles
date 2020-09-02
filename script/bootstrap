@@ -137,6 +137,8 @@ install_dotfiles () {
   done
 }
 
+sudo apt-get update
+
 setup_gitconfig
 install_dotfiles
 
