@@ -1,0 +1,91 @@
+#!/bin/sh
+
+command -v pwsh >/dev/null 2>&1 || {
+    kernelName="$(uname -s)"
+    case "${kernelName}" in
+        Linux*)  os=Linux;;
+        Darwin*) os=Mac;;
+    esac
+
+    if [[ ${os} == "Linux" ]]; then
+        OSFILE=/etc/os-release
+        package=""
+        if [[ -f $OSFILE ]]; then
+            . $OSFILE
+            echo $ID $VERSION_ID
+            if [[ $ID == "ubuntu" ]]; then
+                if [[ $VERSION_ID == "18.04" ]]; then
+                    # Download the Microsoft repository GPG keys
+                    wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
+
+                    # Register the Microsoft repository GPG keys
+                    sudo dpkg -i packages-microsoft-prod.deb
+
+                    # Update the list of products
+                    sudo apt-get update
+
+                    # Enable the "universe" repositories
+                    sudo add-apt-repository universe
+
+                    # Install PowerShell
+                    sudo apt-get install -y powershell
+
+                    # Start PowerShell
+                    pwsh
+                elif [[ $VERSION_ID == "16.04" ]]; then
+                    # Download the Microsoft repository GPG keys
+                    wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
+
+                    # Register the Microsoft repository GPG keys
+                    sudo dpkg -i packages-microsoft-prod.deb
+
+                    # Update the list of products
+                    sudo apt-get update
+
+                    # Install PowerShell
+                    sudo apt-get install -y powershell
+
+                    # Start PowerShell
+                    pwsh
+                fi
+            elif [[ $ID  == "debian" ]]; then
+                if [[ $VERSION_ID == "9" ]]; then
+                    # Install system components
+                    sudo apt-get update
+                    sudo apt-get install -y curl gnupg apt-transport-https
+
+                    # Import the public repository GPG keys
+                    curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+
+                    # Register the Microsoft Product feed
+                    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main" > /etc/apt/sources.list.d/microsoft.list'
+
+                    # Update the list of products
+                    sudo apt-get update
+
+                    # Install PowerShell
+                    sudo apt-get install -y powershell
+
+                    # Start PowerShell
+                    pwsh
+                elif [[ $VERSION_ID == "10" ]]; then
+                    wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb
+
+                    # Register the Microsoft repository GPG keys
+                    sudo dpkg -i packages-microsoft-prod.deb
+
+                    # Update the list of products
+                    sudo apt-get update
+
+                    # Install PowerShell
+                    sudo apt-get install -y powershell
+
+                    # Start PowerShell
+                    pwsh
+                fi
+            fi
+        fi
+    elif [[ ${os} == "Mac" ]]; then
+        brew cask install powershell
+    fi
+}
