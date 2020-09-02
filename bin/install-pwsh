@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 command -v pwsh >/dev/null 2>&1 || {
     kernelName="$(uname -s)"
