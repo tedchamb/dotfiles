@@ -1,9 +1,9 @@
 if (-not (Get-Module -ListAvailable -Name posh-git)) {
-    Import-Module posh-git -Scope CurrentUser -Force -SkipPublisherCheck
+    Import-Module posh-git -Force -SkipPublisherCheck
 } 
 
 if (-not (Get-Module -ListAvailable -Name oh-my-posh)) {
-    Import-Module oh-my-posh -Scope CurrentUser -Force -SkipPublisherCheck
+    Import-Module oh-my-posh -Force -SkipPublisherCheck
 }
 
 if (-not (Get-Module -ListAvailable -Name PSReadLine)) {
