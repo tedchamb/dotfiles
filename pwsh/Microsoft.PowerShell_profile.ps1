@@ -14,4 +14,4 @@ Import-Module posh-git
 Import-Module oh-my-posh
 Set-Theme Paradox
 
-$env:AzureSubscriptionId = "8a53cb9a-a3a5-4602-aa2d-8c171edde3c7"
+# $env:AzureSubscriptionId = "8a53cb9a-a3a5-4602-aa2d-8c171edde3c7"
