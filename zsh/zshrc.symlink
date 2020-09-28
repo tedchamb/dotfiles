@@ -98,9 +98,10 @@ if [[ -a ~/.localrc ]]; then
   source ~/.localrc
 fi
 
-if [[ "$(uname -s)" == "Linux" ]]
-then
-  # iTerm2 Shell Integration
-  # https://iterm2.com/documentation-shell-integration.html
-  source ~/.iterm2_shell_integration.bash
-fi
+#  *** following only supported on bash ***
+# if [[ "$(uname -s)" == "Linux" ]]
+# then
+#   # iTerm2 Shell Integration
+#   # https://iterm2.com/documentation-shell-integration.html
+#   source ~/.iterm2_shell_integration.bash
+# fi
