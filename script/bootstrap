@@ -139,7 +139,8 @@ install_dotfiles () {
 
 sudo apt-get update
 
-setup_gitconfig
+# setup_gitconfig
+
 install_dotfiles
 
 mkdir "$HOME/.config/powershell" --parent
