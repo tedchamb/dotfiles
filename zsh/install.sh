@@ -9,5 +9,5 @@ fi
 sudo chsh -s $(which zsh) $USER
 
 if [ ! -f "$HOME/.oh-my-zsh/oh-my-zsh.sh" ]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" ""  --unattended --keep-zshrc
+  REMOTE='https://github.com/ohmyzsh/ohmyzsh' sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" ""  --unattended --keep-zshrc
 fi
