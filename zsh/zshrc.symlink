@@ -102,3 +102,7 @@ fi
 #   # https://iterm2.com/documentation-shell-integration.html
 #   source ~/.iterm2_shell_integration.bash
 # fi
+
+if [[ -a ~/.profile ]]; then
+  source ~/.profile
+fi
