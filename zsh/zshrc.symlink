@@ -1,7 +1,5 @@
 #!/usr/bin/env zsh
 
-echo "Running $HOME/.dotfiles/Zshrc.symlink"
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -36,7 +34,6 @@ done
 # load everything but the path and completion files
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
 do
-  echo "Running $file"
   source $file
 done
 

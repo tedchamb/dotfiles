@@ -13,3 +13,6 @@ if [ ! -f "$HOME/.oh-my-zsh/oh-my-zsh.sh" ]; then
 fi
 
 zsh -c "$DOTFILES_ROOT/zsh/zshrc.symlink"
+
+# set zsh as default shell
+sudo chsh -s /usr/bin/zsh "$(whoami)"
