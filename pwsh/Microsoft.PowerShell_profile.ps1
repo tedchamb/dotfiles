@@ -12,6 +12,6 @@ if (-not (Get-Module -ListAvailable -Name PSReadLine)) {
 
 Import-Module posh-git
 Import-Module oh-my-posh
-Set-Theme Paradox
+Set-PoshPrompt -Theme Paradox
 
 # $env:AzureSubscriptionId = "8a53cb9a-a3a5-4602-aa2d-8c171edde3c7"
