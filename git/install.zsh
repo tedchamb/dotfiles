@@ -4,15 +4,15 @@ git --version
 
 if [[ ! -a ~/.gitconfig ]]
 then
-    zsh -c "$DOTFILESPATH/git/gitconfig.symlink"
+    ln -s "$DOTFILESPATH/git/gitconfig.symlink" "$HOME/.gitconfig"
 fi
 
 if [[ ! -a ~/.gitconfig.local ]]
 then
-    zsh -c "$DOTFILESPATH/git/gitconfig.local.symlink"
+    ln -s "$DOTFILESPATH/git/gitconfig.local.symlink" "$HOME/.gitconfig.local"
 fi
 
 if [[ ! -a ~/.gitignore ]]
 then
-    zsh -c "$DOTFILESPATH/git/gitignore.symlink"
+    ln -s "$DOTFILESPATH/git/gitignore.symlink" "$HOME/.gitignore"
 fi
