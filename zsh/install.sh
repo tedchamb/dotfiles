@@ -29,6 +29,9 @@ fi
 # shellcheck source=./p10k/install.zsh
 source ./p10k/install.zsh
 
+# shellcheck source=./git/install.zsh
+source ./git/install.zsh
+
 # shellcheck source=./actionsbpdev/setup.zsh
 source ./actionsbpdev/setup.zsh
 
