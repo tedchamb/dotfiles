@@ -14,7 +14,7 @@ then
 fi
 
 if [ ! -f "$HOME/.oh-my-zsh/oh-my-zsh.sh" ]; then
-  REMOTE='git://github.com/ohmyzsh/ohmyzsh.git' sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" ""  --unattended --keep-zshrc
+  REMOTE='https://github.com/ohmyzsh/ohmyzsh' sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" ""  --unattended --keep-zshrc
 fi
 
 zsh -c "$DOTFILESPATH/zsh/zshrc.symlink"
