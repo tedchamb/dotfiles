@@ -12,11 +12,13 @@ if [[ ! -e ~/.profile ]]; then
 fi
 
 # add DOTFILESPATH to .profile
+set e
 grep 'DOTFILESPATH=' < ~/.profile
 if [[ $? == 1 ]]
 then
   echo "export DOTFILESPATH=$DOTFILESPATH" >> ~/.profile
 fi
+set -e
 
 if [[ "$(uname -s)" == "Linux" ]]
 then
