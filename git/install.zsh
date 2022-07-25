@@ -2,17 +2,17 @@
 
 git --version
 
-if [[ ! -a ~/.gitconfig ]]
+if [[ ! -e ~/.gitconfig ]]
 then
     ln -s "$DOTFILESPATH/git/gitconfig.symlink" "$HOME/.gitconfig"
 fi
 
-if [[ ! -a ~/.gitconfig.local ]]
+if [[ ! -e ~/.gitconfig.local ]]
 then
     ln -s "$DOTFILESPATH/git/gitconfig.local.symlink" "$HOME/.gitconfig.local"
 fi
 
-if [[ ! -a ~/.gitignore ]]
+if [[ ! -e ~/.gitignore ]]
 then
     ln -s "$DOTFILESPATH/git/gitignore.symlink" "$HOME/.gitignore"
 fi
