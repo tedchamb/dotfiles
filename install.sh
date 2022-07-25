@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -x
+set -xe
 
 cd "$(dirname "$0")" || exit
 DOTFILESPATH=$(pwd -P)
