@@ -7,7 +7,7 @@ DOTFILESPATH=$(pwd -P)
 export DOTFILESPATH
 
 # create .profile if it doesn't exist
-if [[ ! -a ~/.profile ]]; then
+if [[ ! -e ~/.profile ]]; then
   echo '#!/usr/bin/env sh' > ~/.profile
 fi
 
