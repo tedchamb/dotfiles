@@ -1,0 +1,5 @@
+[user]
+        name = Ted Chambers
+        email = tedchamb@github.com
+[credential]
+        helper = osxkeychain
