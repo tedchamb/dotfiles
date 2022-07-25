@@ -18,14 +18,14 @@ if [ ! -f "$HOME/.oh-my-zsh/oh-my-zsh.sh" ]; then
 fi
 
 # shellcheck source=~/.profile
-source ~/.profile
+zshrcPath="$(dirname "$0")/zshrc.symlink"
 
 zhrcPath=~/.zshrc
 if [[ ! -L "$zhrcPath" ]]; then
   if [[ ! -e "$zhrcPath" ]]; then
-    ln -s "$DOTFILESPATH/zsh/zshrc.symlink" "$zhrcPath"
+    ln -s "$zshrcPath" "$zhrcPath"
   else
-    loadZhrcCommand="source '$DOTFILES/zsh/zshrc.symlink'"
+    loadZhrcCommand="source '$zshrcPath'"
     if ! grep "$loadZhrcCommand" < "$zhrcPath"
     then
       echo "$loadZhrcCommand" >> "$zhrcPath"
