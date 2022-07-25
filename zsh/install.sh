@@ -17,18 +17,17 @@ if [ ! -f "$HOME/.oh-my-zsh/oh-my-zsh.sh" ]; then
   REMOTE='https://github.com/ohmyzsh/ohmyzsh' sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" ""  --unattended --keep-zshrc
 fi
 
-# shellcheck source=~/.profile
-zshrcPath="$(dirname "$0")/zshrc.symlink"
+zshrcSymlinkPath=$(cd "$(dirname "$0")" && pwd -P)/zshrc.symlink
 
-zhrcPath=~/.zshrc
-if [[ ! -L "$zhrcPath" ]]; then
-  if [[ ! -e "$zhrcPath" ]]; then
-    ln -s "$zshrcPath" "$zhrcPath"
+zshrcPath=~/.zshrc
+if [[ ! -L "$zshrcPath" ]]; then
+  if [[ ! -e "$zshrcPath" ]]; then
+    ln -s "$zshrcSymlinkPath" "$zshrcPath"
   else
-    loadZhrcCommand="source '$zshrcPath'"
-    if ! grep "$loadZhrcCommand" < "$zhrcPath"
+    loadZhrcCommand="source 'zshrcSymlinkPath'"
+    if ! grep "$loadZhrcCommand" < "$zshrcPath"
     then
-      echo "$loadZhrcCommand" >> "$zhrcPath"
+      echo "$loadZhrcCommand" >> "$zshrcPath"
     fi
   fi
 fi
