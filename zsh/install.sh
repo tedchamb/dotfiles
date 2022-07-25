@@ -24,7 +24,7 @@ if [[ ! -L "$zshrcPath" ]]; then
   if [[ ! -e "$zshrcPath" ]]; then
     ln -s "$zshrcSymlinkPath" "$zshrcPath"
   else
-    loadZhrcCommand="source 'zshrcSymlinkPath'"
+    loadZhrcCommand="source '$zshrcSymlinkPath'"
     if ! grep "$loadZhrcCommand" < "$zshrcPath"
     then
       echo "$loadZhrcCommand" >> "$zshrcPath"
