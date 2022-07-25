@@ -23,7 +23,7 @@ if [[ ! -L "$zhrcPath" ]]; then
     ln -s "$DOTFILESPATH/zsh/zshrc.symlink" "$zhrcPath"
   else
     loadZhrcCommand="source '$DOTFILES/zsh/zshrc.symlink'"
-    if grep "$loadZhrcCommand" < "$zhrcPath"
+    if ! grep "$loadZhrcCommand" < "$zhrcPath"
     then
       echo "$loadZhrcCommand" >> "$zhrcPath"
     fi

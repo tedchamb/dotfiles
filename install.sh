@@ -12,7 +12,7 @@ if [[ ! -e ~/.profile ]]; then
 fi
 
 # add DOTFILESPATH to .profile
-if grep 'DOTFILESPATH=' < ~/.profile
+if ! grep 'DOTFILESPATH=' < ~/.profile
 then
   echo "export DOTFILESPATH=$DOTFILESPATH" >> ~/.profile
 fi
