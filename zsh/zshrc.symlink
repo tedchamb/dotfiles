@@ -1,5 +1,9 @@
 #!/usr/bin/env zsh
 
+if [[ -a ~/.profile ]]; then
+  source ~/.profile
+fi
+
 if [[ -a ~/.iterm2_shell_integration.zsh ]];
 then
   # iTerm2 Shell Integration
@@ -24,7 +28,3 @@ if [[ -a "$ZSH/custom/themes/powerlevel10k/powerlevel10k.zsh-theme" ]]; then
 fi
 
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
-
-if [[ -a ~/.profile ]]; then
-  source ~/.profile
-fi

@@ -6,15 +6,18 @@ cd "$(dirname "$0")" || exit
 DOTFILESPATH=$(pwd -P)
 export DOTFILESPATH
 
+profilePath=~/.profile
+
 # create .profile if it doesn't exist
-if [[ ! -e ~/.profile ]]; then
-  echo '#!/usr/bin/env sh' > ~/.profile
+if [[ ! -e "$profilePath" ]]; then
+  echo '#!/usr/bin/env sh' > "$profilePath"
 fi
 
 # add DOTFILESPATH to .profile
-if ! grep 'DOTFILESPATH=' < ~/.profile
+dotFilesPathCommand="export DOTFILESPATH=$DOTFILESPATH"
+if ! grep "$dotFilesPathCommand" < "$profilePath"
 then
-  echo "export DOTFILESPATH=$DOTFILESPATH" >> ~/.profile
+  echo "$dotFilesPathCommand" >> "$profilePath"
 fi
 
 if [[ "$(uname -s)" == "Linux" ]]
@@ -28,12 +31,10 @@ then
 fi
 
 # shellcheck source=./fonts/install.sh
-source ./fonts/install.sh
+source "$DOTFILESPATH/fonts/install.sh"
 
 # shellcheck source=./zsh/install.sh
-source ./zsh/install.sh
+source "$DOTFILESPATH/zsh/install.sh"
 
 # shellcheck source=./pwsh/install.sh
-source ./pwsh/install.sh
-
-
+source "$DOTFILESPATH/pwsh/install.sh"
