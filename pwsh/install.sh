@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-if [[ ! -e "$HOME/.config/powershell/Microsoft.PowerShell_profile.ps1" ]]; then
-  mkdir "$HOME/.config/powershell" --parent
-  ln -s "$DOTFILESPATH/pwsh/Microsoft.PowerShell_profile.ps1" "$HOME/.config/powershell/Microsoft.PowerShell_profile.ps1"
+pwshProfileDirectory="$HOME/.config/powershell"
+pwshProfile="$pwshProfileDirectory/Microsoft.PowerShell_profile.ps1"
+
+if [[ ! -L "$pwshProfile" && ! -e "$pwshProfile" ]]; then
+  mkdir "$pwshProfileDirectory" --parent
+  ln -s "$DOTFILESPATH/pwsh/Microsoft.PowerShell_profile.ps1" "$pwshProfile"
 fi
