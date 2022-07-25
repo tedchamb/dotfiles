@@ -13,8 +13,8 @@ fi
 
 # add DOTFILESPATH to .profile
 set e
-grep 'DOTFILESPATH=' < ~/.profile
-if [[ $? == 1 ]]
+
+if grep 'DOTFILESPATH=' < ~/.profile
 then
   echo "export DOTFILESPATH=$DOTFILESPATH" >> ~/.profile
 fi
