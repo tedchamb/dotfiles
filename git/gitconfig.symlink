@@ -1,10 +1,6 @@
 [user]
 	name = Ted Chambers
 	email = tedchamb@github.com
-[maintenance]
-	repo = /Users/tedchamb/repos/azdevnext6/src
-	repo = /Users/tedchamb/repos/azdevnext5/src
-	repo = /Users/tedchamb/repos/ghae-kube
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
