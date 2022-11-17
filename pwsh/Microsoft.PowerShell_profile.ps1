@@ -3,7 +3,6 @@
 $env:AzureSubscriptionId = '8a53cb9a-a3a5-4602-aa2d-8c171edde3c7'
 
 if ($env:CODESPACES -eq 'true') {
-
     # Start-Actions
     function global:sa { zsh -c "unset SKYRISEV3 && $env:GITHUB_PATH/script/actions/start-actions" }
 
@@ -17,7 +16,9 @@ if ($env:CODESPACES -eq 'true') {
         zsh -c "cd '$env:LAUNCH_PATH' && script/setup --force"
         sa
     }
+}
 
+if ($env:SKYRISEV3 -eq 'true') {
     # Build Run L0s
     function global:brl0 {
         b

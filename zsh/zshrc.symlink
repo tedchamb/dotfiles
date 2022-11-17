@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 if [[ -a ~/.profile ]]; then
   source ~/.profile
@@ -11,20 +11,21 @@ then
   source ~/.iterm2_shell_integration.zsh
 fi
 
-alias dotfiles="cd $DOTFILESPATH"
+alias dotfiles="cd '$DOTFILESPATH'"
 alias ev='env | sort'
 
 # Path to oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
+export ZSH_THEME="powerlevel10k/powerlevel10k"
 
 if [[ -a "$ZSH/oh-my-zsh.sh" ]]; then
   source "$ZSH/oh-my-zsh.sh"
 fi
 
-if [[ -a "$ZSH/custom/themes/powerlevel10k/powerlevel10k.zsh-theme" ]]; then
-  source "$ZSH/custom/themes/powerlevel10k/powerlevel10k.zsh-theme"
+ZshThemePath="$ZSH/custom/themes/powerlevel10k/powerlevel10k.zsh-theme"
+if [[ -a "$ZshThemePath" ]]; then
+  source "$ZshThemePath"
 fi
 
-POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
