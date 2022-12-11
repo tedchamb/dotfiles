@@ -28,6 +28,12 @@ if ($env:CODESPACES -eq 'true') {
     function global:ral {
         kubectl logs $(kubectl get pods -o name | grep 'pod/runner-api-server-') --follow
     }
+
+    # faults in the host to Actions and Runner services
+    // fault in service host
+    // https://github.com/github/actions-dotnet/blob/main/script/autopath/faultInOrg
+    function global:fig { faultInOrg github }
+    function global:fia { faultInOrg actions }
 }
 
 # kubectl
