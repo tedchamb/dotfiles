@@ -44,8 +44,5 @@ source ./p10k/install.zsh
 # shellcheck source=./git/install.zsh
 source ./git/install.zsh
 
-# shellcheck source=./actionsbpdev/setup.zsh
-source ./actionsbpdev/setup.zsh
-
 # shellcheck source=./githubcodespace/setup.zsh
 source ./githubcodespace/setup.zsh
