@@ -33,6 +33,11 @@ if ($env:CODESPACES -eq 'true') {
     # https://github.com/github/actions-dotnet/blob/main/script/autopath/faultInOrg
     function global:fig { faultInOrg github }
     function global:fia { faultInOrg actions }
+    
+    # Rerun dotfiles install
+    function global:di { 
+        zsh -c "cd '$env:DOTFILESPATH' && git pull && ./install.sh"
+    }
 }
 
 # kubectl
