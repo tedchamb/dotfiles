@@ -2,6 +2,7 @@
 
 $env:AzureSubscriptionId = '8a53cb9a-a3a5-4602-aa2d-8c171edde3c7'
 
+$cheatSheet = ""
 if ($env:CODESPACES -eq 'true') {
     # Start-Actions
     function global:sa {
@@ -38,7 +39,21 @@ if ($env:CODESPACES -eq 'true') {
     function global:di { 
         zsh -c "cd '$env:DOTFILESPATH' && git pull && ./install.sh"
     }
+    
+    $cheatSheet += "
+sa      start actions
+ncs     new codespace setup
+rjl     runner job agent logs
+ral     runner api server logs
+fig     faultInOrg github
+fia     faultInOrg actions
+di      dotfiles install latest"
 }
+
+    $cheatSheet += "
+k       kubectl
+brl0    build and run l0
+brl1    build and run l1"
 
 # kubectl
 function global:k {
@@ -54,9 +69,6 @@ function global:brl0 {
 }
 
 # Build Run L1s
-function global:brl1 {
-    b
-    if ($LastExitCode -eq 0) {
-        l1
-    }
+function global:cheat {
+    write-host $cheatSheet
 }
