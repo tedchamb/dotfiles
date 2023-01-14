@@ -69,6 +69,13 @@ function global:brl0 {
 }
 
 # Build Run L1s
+function global:brl1 {
+    b
+    if ($LastExitCode -eq 0) {
+        l1
+    }
+}
+
 function global:cheat {
     write-host $cheatSheet
 }
