@@ -39,7 +39,12 @@ if ($env:CODESPACES -eq 'true') {
     function global:di { 
         zsh -c "cd '$env:DOTFILESPATH' && git pull && ./install.sh"
     }
-    
+
+    # run L2s in parallel
+    function global:l2p {
+        run_tests_parallel.ps1 "$env:BINARIESDIR/Runner.Service/Debug" 'GitHub.Actions.Runner.Service.L2.Tests.dll' '' "$env:BUILDDIR/Runner/Runner.L2.runsettings" 'Priority=1' '' "$env:BUILDDIR/../temp/L2"
+    }
+
     $cheatSheet += "
 sa      start actions
 ncs     new codespace setup
@@ -47,7 +52,8 @@ rjl     runner job agent logs
 ral     runner api server logs
 fig     faultInOrg github
 fia     faultInOrg actions
-di      dotfiles install latest"
+di      dotfiles install latest
+l2p     run L2s in parallel"
 }
 
     $cheatSheet += "
