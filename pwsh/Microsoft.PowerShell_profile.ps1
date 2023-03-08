@@ -15,9 +15,18 @@ if ($env:CODESPACES -eq 'true') {
             src
             b
         }
-        zsh -c "unset SKYRISEV3 && cd '$env:SKYRISE_PATH' && script/setup-codespaces-runner.ps1"
-        zsh -c "cd '$env:LAUNCH_PATH' && script/setup --force"
-        sa
+        if ($LastExitCode -eq 0) {
+            /usr/local/share/docker-init.sh
+            if ($LastExitCode -eq 0) {
+                zsh -c "unset SKYRISEV3 && cd '$env:SKYRISE_PATH' && script/setup-codespaces-runner.ps1"
+                if ($LastExitCode -eq 0) {
+                    zsh -c "cd '$env:LAUNCH_PATH' && script/setup --force"
+                    if ($LastExitCode -eq 0) {
+                        sa
+                    }
+                }
+            }
+        }
     }
 
     # runner job agent logs
