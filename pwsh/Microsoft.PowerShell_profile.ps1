@@ -54,11 +54,16 @@ if ($env:CODESPACES -eq 'true') {
         run_tests_parallel.ps1 "$env:BINARIESDIR/Runner.Service/Debug" 'GitHub.Actions.Runner.Service.L2.Tests.dll' '' "$env:BUILDDIR/Runner/Runner.L2.runsettings" 'Priority=1' '' "$env:BUILDDIR/../temp/L2"
     }
 
+    # deploy runner
+    function global:dr {
+        deploy runner -useexistingdatabases
+    }
+
     # build, deploy runner
     function global:bdr {
         b
         if ($LastExitCode -eq 0) {
-            deploy runner -useexistingdatabases
+            dr
         }
     }
 
@@ -66,16 +71,14 @@ if ($env:CODESPACES -eq 'true') {
     function global:pbdr {
         git pull
         if ($LastExitCode -eq 0) {
-            b
-            if ($LastExitCode -eq 0) {
-                deploy runner -useexistingdatabases
-            }
+            bdr
         }
     }
 
     $cheatSheet += "
 bdr     build, deploy runner
 di      dotfiles install latest
+dr      deploy runner
 fia     faultInOrg actions
 fig     faultInOrg github
 l2p     run L2s in parallel
