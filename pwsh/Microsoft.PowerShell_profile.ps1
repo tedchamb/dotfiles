@@ -55,7 +55,7 @@ if ($env:CODESPACES -eq 'true') {
     }
 
     # deploy runner
-    function global:dr {
+    function global:depr {
         deploy runner -useexistingdatabases
     }
 
@@ -63,7 +63,7 @@ if ($env:CODESPACES -eq 'true') {
     function global:bdr {
         b
         if ($LastExitCode -eq 0) {
-            dr
+            depr
         }
     }
 
