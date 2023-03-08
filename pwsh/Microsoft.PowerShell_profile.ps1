@@ -45,7 +45,7 @@ if ($env:CODESPACES -eq 'true') {
         run_tests_parallel.ps1 "$env:BINARIESDIR/Runner.Service/Debug" 'GitHub.Actions.Runner.Service.L2.Tests.dll' '' "$env:BUILDDIR/Runner/Runner.L2.runsettings" 'Priority=1' '' "$env:BUILDDIR/../temp/L2"
     }
 
-    # build deploy runner
+    # build, deploy runner
     function global:bdr {
         b
         if ($LastExitCode -eq 0) {
@@ -53,13 +53,25 @@ if ($env:CODESPACES -eq 'true') {
         }
     }
 
+    # pull, build, deploy runner
+    function global:pbdr {
+        git pull
+        if ($LastExitCode -eq 0) {
+            b
+            if ($LastExitCode -eq 0) {
+                deploy runner -useexistingdatabases
+            }
+        }
+    }
+
     $cheatSheet += "
-bdr     build deploy runner
+bdr     build, deploy runner
 di      dotfiles install latest
 fia     faultInOrg actions
 fig     faultInOrg github
 l2p     run L2s in parallel
 ncs     new codespace setup
+pbdr    pull, build, deploy runner
 ral     runner api server logs
 rjl     runner job agent logs
 sa      start actions
