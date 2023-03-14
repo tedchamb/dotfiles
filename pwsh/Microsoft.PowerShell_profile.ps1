@@ -1,6 +1,6 @@
 #!/usr/bin/env pwsh
 
-$env:AzureSubscriptionId = '8a53cb9a-a3a5-4602-aa2d-8c171edde3c7'
+$env:AzureSubscriptionId = '16eb6e57-e88b-49c9-8acb-26048bee1f93'
 
 $cheatSheet = ""
 if ($env:CODESPACES -eq 'true') {
