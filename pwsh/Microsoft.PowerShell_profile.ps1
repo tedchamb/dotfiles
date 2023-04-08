@@ -1,6 +1,7 @@
 #!/usr/bin/env pwsh
 
 $env:AzureSubscriptionId = '16eb6e57-e88b-49c9-8acb-26048bee1f93'
+$env:AZUREREGION = 'eastus'
 
 $cheatSheet = ""
 if ($env:CODESPACES -eq 'true') {
