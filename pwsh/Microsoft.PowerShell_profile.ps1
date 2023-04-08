@@ -16,7 +16,7 @@ if ($env:CODESPACES -eq 'true') {
             b
         }
         if ($LastExitCode -eq 0) {
-            /usr/local/share/docker-init.sh
+            zsh -c "cd '$env:GITHUB_PATH' && gh medic"
             if ($LastExitCode -eq 0) {
                 zsh -c "unset SKYRISEV3 && cd '$env:SKYRISE_PATH' && script/setup-codespaces-runner.ps1"
                 if ($LastExitCode -eq 0) {
