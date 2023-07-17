@@ -7,7 +7,7 @@ $cheatSheet = ""
 if ($env:CODESPACES -eq 'true') {
     # Start-Actions
     function global:sa {
-        zsh -c "unset SKYRISEV3 && $env:GITHUB_PATH/script/actions/start-actions"
+        zsh -c "unset SKYRISEV3 && $env:ACTIONS_CODESPACES_PATH/script/server --scenario actions-larger-runners-e2e"
     }
 
     # New Codespace Setup
