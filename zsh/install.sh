@@ -48,9 +48,6 @@ source ./git/install.zsh
 source ./githubcodespace/setup.zsh
 
 azureSubIdCommand="export AzureSubscriptionId='16eb6e57-e88b-49c9-8acb-26048bee1f93'"
-grep -F "$azureSubIdCommand" ~/.profile
-
-if test $? -ne 0
-then
+if ! (grep -F "$azureSubIdCommand" ~/.profile); then
   echo "$azureSubIdCommand" >> ~/.profile
 fi
