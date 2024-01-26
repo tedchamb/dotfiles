@@ -29,3 +29,5 @@ if [[ -a "$ZshThemePath" ]]; then
 fi
 
 export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+
+alias mockgen='$(go env GOPATH)/bin/mockgen'

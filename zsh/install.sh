@@ -51,3 +51,23 @@ azureSubIdCommand="export AzureSubscriptionId='16eb6e57-e88b-49c9-8acb-26048bee1
 if ! (grep -F "$azureSubIdCommand" ~/.profile); then
   echo "$azureSubIdCommand" >> ~/.profile
 fi
+
+command="export GOPROXY=https://goproxy.githubapp.com/mod,https://proxy.golang.org/,direct"
+if ! (grep -F "$command" ~/.profile); then
+  echo "$command" >> ~/.profile
+fi
+
+command="export GOPRIVATE="
+if ! (grep -F "$command" ~/.profile); then
+  echo "$command" >> ~/.profile
+fi
+
+command="export GONOPROXY="
+if ! (grep -F "$command" ~/.profile); then
+  echo "$command" >> ~/.profile
+fi
+
+command="export GONOSUMDB=github.com/github/*"
+if ! (grep -F "$command" ~/.profile); then
+  echo "$command" >> ~/.profile
+fi
