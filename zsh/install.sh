@@ -8,7 +8,7 @@ then
   fi
 fi
 
-if [[ ! "$SHELL" == */zsh ]]
+if [[ ! "$SHELL" == */zsh ]] && [[ -n $USER ]];
 then
   sudo chsh -s "$(which zsh)" "$USER"
 fi
