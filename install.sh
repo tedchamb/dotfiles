@@ -38,3 +38,6 @@ source "$DOTFILESPATH/zsh/install.sh"
 
 # shellcheck source=./pwsh/install.sh
 source "$DOTFILESPATH/pwsh/install.sh"
+
+# shellcheck source=./logfmtpp/install.sh
+source "$DOTFILESPATH/logfmtpp/install.sh"
