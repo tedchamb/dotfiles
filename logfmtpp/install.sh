@@ -4,7 +4,7 @@ set -e
 
 scriptDir=$(dirname "$0")
 
-binDir = "$scriptDir/bin"
+binDir="$scriptDir/bin"
 if [[ -d "$dir_to_remove" ]]; then
     rm -dr "$binDir"
 fi
