@@ -5,13 +5,13 @@ set -e
 scriptDir=$(dirname "$0")
 
 binDir="$scriptDir/bin"
-if [[ -d "$dir_to_remove" ]]; then
+if [[ -d "$binDir" ]]; then
     rm -dr "$binDir"
 fi
 
-$scriptDir/../github/download-release.ps1 -Repo tedchamb/logfmtpp -Name logfmtpp -Destination "$binDir"
+"$scriptDir/../github/download-release.ps1" -Repo tedchamb/logfmtpp -Name logfmtpp -Destination "$binDir"
 
-$toolPath = "$binDir/logfmtpp"
+toolPath="$binDir/logfmtpp"
 chmod +x "$toolPath"
 
 symlinkPath="/usr/local/bin/$(basename "$toolPath")"

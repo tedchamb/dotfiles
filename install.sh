@@ -40,4 +40,4 @@ source "$DOTFILESPATH/zsh/install.sh"
 source "$DOTFILESPATH/pwsh/install.sh"
 
 # shellcheck source=./logfmtpp/install.sh
-source "$DOTFILESPATH/logfmtpp/install.sh"
+"$DOTFILESPATH/logfmtpp/install.sh"
