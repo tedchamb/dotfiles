@@ -30,4 +30,8 @@ fi
 
 export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 
-alias mockgen='$(go env GOPATH)/bin/mockgen'
+# add go bin to path
+goBinPath=$(go env GOPATH)/bin
+if [[ ":$PATH:" != *"$goBinPath"* ]]; then # this check has obvious issues, but good enough for now
+    export PATH="$PATH:$goBinPath"
+fi
