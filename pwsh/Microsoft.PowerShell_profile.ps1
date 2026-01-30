@@ -1,6 +1,5 @@
 #!/usr/bin/env pwsh
 
-$env:AzureSubscriptionId = '6d3acc75-039d-4a84-a0c2-883e492a72dd'
 $env:NetworkSubscriptionId = '9ed6f940-4ca4-4512-a8f8-a08f8d151201'
 $env:L3_VnetInjectionNetworkServiceTests_RunnerGroupId=1
 $env:AZUREREGION = 'eastus'
