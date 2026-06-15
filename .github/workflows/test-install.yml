@@ -11,7 +11,7 @@ on:
 
 jobs:
   install:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-firewall
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
