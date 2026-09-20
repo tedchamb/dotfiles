@@ -41,3 +41,6 @@ source "$DOTFILESPATH/pwsh/install.sh"
 
 # shellcheck source=./logfmtpp/install.sh
 "$DOTFILESPATH/logfmtpp/install.sh"
+
+# shellcheck source=./vscode/install.sh
+"$DOTFILESPATH/vscode/install.sh"
