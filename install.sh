@@ -36,11 +36,16 @@ source "$DOTFILESPATH/fonts/install.sh"
 # shellcheck source=./zsh/install.sh
 source "$DOTFILESPATH/zsh/install.sh"
 
-# shellcheck source=./pwsh/install.sh
-source "$DOTFILESPATH/pwsh/install.sh"
+if command -v pwsh &> /dev/null
+then
+  # shellcheck source=./pwsh/install.sh
+  source "$DOTFILESPATH/pwsh/install.sh"
 
-# shellcheck source=./logfmtpp/install.sh
-"$DOTFILESPATH/logfmtpp/install.sh"
+  # shellcheck source=./logfmtpp/install.sh
+  "$DOTFILESPATH/logfmtpp/install.sh"
+else
+  echo "PowerShell (pwsh) not found; skipping PowerShell profile and logfmtpp installation"
+fi
 
 # shellcheck source=./vscode/install.sh
 "$DOTFILESPATH/vscode/install.sh"
